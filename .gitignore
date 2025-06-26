@@ -9,3 +9,4 @@ build
 
 # Docs
 app.md
+/generated/prisma
