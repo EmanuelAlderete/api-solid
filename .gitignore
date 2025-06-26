@@ -12,3 +12,6 @@ app.md
 
 # Database
 /generated/prisma
+
+# Tests
+coverage
