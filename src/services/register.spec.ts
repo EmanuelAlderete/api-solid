@@ -43,4 +43,17 @@ describe('User Registration Service', () => {
 			}),
 		).rejects.toBeInstanceOf(EmailAlreadyRegisteredError)
 	})
+
+	it('should register a user', async () => {
+		const usersRepository = new InMeroryUsersRepository()
+		const userRegisterService = new UserRegisterService(usersRepository)
+
+		const { user } = await userRegisterService.execute({
+			name: 'John Tester',
+			email: 'johntester@gmail.com',
+			password: '123456',
+		})
+
+		expect(user.id).toEqual(expect.any(String))
+	})
 })
