@@ -22,4 +22,25 @@ describe('User Registration Service', () => {
 
 		expect(isPasswordCorrectlyHashed).toBe(true)
 	})
+
+	it('should not be able to register with the same email twice', async () => {
+		const usersRepository = new InMeroryUsersRepository()
+		const userRegisterService = new UserRegisterService(usersRepository)
+
+		const email = 'johntester@gmail.com'
+
+		await userRegisterService.execute({
+			name: 'John Tester',
+			email: email,
+			password: '123456',
+		})
+
+		expect(() =>
+			userRegisterService.execute({
+				name: 'John Tester',
+				email: email,
+				password: '123456',
+			}),
+		).rejects.toBeInstanceOf(EmailAlreadyRegisteredError)
+	})
 })
