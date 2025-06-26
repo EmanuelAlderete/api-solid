@@ -9,4 +9,6 @@ build
 
 # Docs
 app.md
+
+# Database
 /generated/prisma
