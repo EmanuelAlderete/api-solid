@@ -1,7 +1,7 @@
 import type { Prisma, User } from 'generated/prisma'
 import type { UsersRepository } from '../users-repository'
 
-export class InMeroryUsersRepository implements UsersRepository {
+export class InMemoryUsersRepository implements UsersRepository {
 	public memory_database: User[] = []
 
 	async findbyId(id: string): Promise<User | null> {

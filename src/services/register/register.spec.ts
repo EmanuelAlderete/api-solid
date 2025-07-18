@@ -1,15 +1,15 @@
 import { compare } from 'bcryptjs'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { InMeroryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
+import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
 import { EmailAlreadyRegisteredError } from '../errors/email-already-registered-error'
 import { UserRegisterService } from './register.service'
 
-let usersRepository: InMeroryUsersRepository
+let usersRepository: InMemoryUsersRepository
 let sut: UserRegisterService
 
 describe('User Registration Service', () => {
 	beforeEach(() => {
-		usersRepository = new InMeroryUsersRepository()
+		usersRepository = new InMemoryUsersRepository()
 		sut = new UserRegisterService(usersRepository)
 	})
 

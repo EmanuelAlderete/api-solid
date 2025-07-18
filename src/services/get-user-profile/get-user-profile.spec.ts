@@ -1,15 +1,15 @@
 import { hash } from 'bcryptjs'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { InMeroryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
+import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
 import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 import { GetUserProfileService } from './get-user-profile.service'
 
-let usersRepository: InMeroryUsersRepository
+let usersRepository: InMemoryUsersRepository
 let sut: GetUserProfileService
 
 describe('Get User Profile Service', () => {
 	beforeEach(() => {
-		usersRepository = new InMeroryUsersRepository()
+		usersRepository = new InMemoryUsersRepository()
 		sut = new GetUserProfileService(usersRepository)
 	})
 
