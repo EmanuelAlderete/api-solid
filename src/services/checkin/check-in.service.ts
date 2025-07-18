@@ -1,9 +1,13 @@
 import type { CheckIn } from 'generated/prisma'
 import type { CheckInsRepository } from '@/repositories/checkins.repository'
+import type { GymsRepository } from '@/repositories/gyms-repository'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 
 type CheckinServiceRequest = {
 	userId: string
 	gymId: string
+	userLatitude: number
+	userLongitude: number
 }
 
 type CheckinServiceResponse = {
@@ -11,11 +15,22 @@ type CheckinServiceResponse = {
 }
 
 export class CheckInService {
-	constructor(private checkInsRepository: CheckInsRepository) {}
+	constructor(
+		private checkInsRepository: CheckInsRepository,
+		private gymsRepository: GymsRepository,
+	) {}
 	async execute({
 		userId,
 		gymId,
 	}: CheckinServiceRequest): Promise<CheckinServiceResponse> {
+		const gym = await this.gymsRepository.findbyId(gymId)
+
+		if (!gym) {
+			throw new ResourceNotFoundError()
+		}
+
+		// TODO - calculate distance between user and gym
+
 		const checkInOnSameDay = await this.checkInsRepository.findByUserIdOnDate(
 			userId,
 			new Date(),
