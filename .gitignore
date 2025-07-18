@@ -15,3 +15,6 @@ app.md
 
 # Tests
 coverage
+
+# IDE
+.vscode
