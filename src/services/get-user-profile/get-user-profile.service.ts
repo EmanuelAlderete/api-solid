@@ -1,8 +1,6 @@
-import { compare } from 'bcryptjs'
 import type { User } from 'generated/prisma'
 import type { UsersRepository } from '@/repositories/users-repository'
-import { InvalidCredentialsError } from './errors/invalid-credentials-error'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 
 type GetUSerProfileServiceRequest = {
 	userId: string

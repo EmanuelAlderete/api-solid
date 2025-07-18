@@ -1,7 +1,7 @@
 import { hash } from 'bcryptjs'
 import type { User } from 'generated/prisma'
 import type { UsersRepository } from '@/repositories/users-repository'
-import { EmailAlreadyRegisteredError } from './errors/email-already-registered-error'
+import { EmailAlreadyRegisteredError } from '../errors/email-already-registered-error'
 
 interface UserRegisterRequest {
 	name: string

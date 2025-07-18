@@ -1,7 +1,7 @@
 import { compare } from 'bcryptjs'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { InMeroryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
-import { EmailAlreadyRegisteredError } from './errors/email-already-registered-error'
+import { EmailAlreadyRegisteredError } from '../errors/email-already-registered-error'
 import { UserRegisterService } from './register.service'
 
 let usersRepository: InMeroryUsersRepository
