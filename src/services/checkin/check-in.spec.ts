@@ -34,8 +34,8 @@ describe('User Registration Service', () => {
 		const { checkIn } = await sut.execute({
 			gymId: 'gym-01',
 			userId: 'user-01',
-			userLatitude: 0,
-			userLongitude: 0,
+			userLatitude: -31.3233199,
+			userLongitude: -54.0901376,
 		})
 
 		expect(checkIn.id).toEqual(expect.any(String))
@@ -47,16 +47,16 @@ describe('User Registration Service', () => {
 		await sut.execute({
 			gymId: 'gym-01',
 			userId: 'user-01',
-			userLatitude: 0,
-			userLongitude: 0,
+			userLatitude: -31.3233199,
+			userLongitude: -54.0901376,
 		})
 
 		await expect(() =>
 			sut.execute({
 				gymId: 'gym-01',
 				userId: 'user-01',
-				userLatitude: 0,
-				userLongitude: 0,
+				userLatitude: -31.3233199,
+				userLongitude: -54.0901376,
 			}),
 		).rejects.toBeInstanceOf(Error)
 	})
@@ -67,18 +67,38 @@ describe('User Registration Service', () => {
 		await sut.execute({
 			gymId: 'gym-01',
 			userId: 'user-01',
-			userLatitude: 0,
-			userLongitude: 0,
+			userLatitude: -31.3233199,
+			userLongitude: -54.0901376,
 		})
 		vi.setSystemTime(new Date(2022, 0, 21, 8, 0, 0))
 
 		const { checkIn } = await sut.execute({
 			gymId: 'gym-01',
 			userId: 'user-01',
-			userLatitude: 0,
-			userLongitude: 0,
+			userLatitude: -31.3233199,
+			userLongitude: -54.0901376,
 		})
 
 		expect(checkIn.id).toEqual(expect.any(String))
+	})
+
+	it('should not be able to check in on distant gym', async () => {
+		gymsRepository.memory_database.push({
+			id: 'gym-02',
+			title: 'Academia dos Ratos',
+			description: null,
+			phone: null,
+			latitude: new Decimal(-31.2866554),
+			longitude: new Decimal(-54.0692621),
+		})
+
+		await expect(() =>
+			sut.execute({
+				gymId: 'gym-02',
+				userId: 'user-01',
+				userLatitude: -31.3233199,
+				userLongitude: -54.0901376,
+			}),
+		).rejects.toBeInstanceOf(Error)
 	})
 })
