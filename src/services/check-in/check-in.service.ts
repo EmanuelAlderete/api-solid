@@ -1,4 +1,4 @@
-import type { CheckIn } from "generated/prisma";
+import type { CheckIn } from "@prisma/client";
 import type { CheckInsRepository } from "@/repositories/checkins.repository";
 import type { GymsRepository } from "@/repositories/gyms-repository";
 import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coordinates";
