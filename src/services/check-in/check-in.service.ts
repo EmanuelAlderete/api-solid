@@ -6,14 +6,14 @@ import { ResourceNotFoundError } from "../errors/resource-not-found-error";
 import { MaxDistanceError } from "../errors/max-distance-error";
 import { MaxNumberOfCheckInsError } from "../errors/max-number-of-check-ins-error";
 
-type CheckinServiceRequest = {
+type CheckInServiceRequest = {
   userId: string;
   gymId: string;
   userLatitude: number;
   userLongitude: number;
 };
 
-type CheckinServiceResponse = {
+type CheckInServiceResponse = {
   checkIn: CheckIn;
 };
 
@@ -27,7 +27,7 @@ export class CheckInService {
     gymId,
     userLatitude,
     userLongitude,
-  }: CheckinServiceRequest): Promise<CheckinServiceResponse> {
+  }: CheckInServiceRequest): Promise<CheckInServiceResponse> {
     const gym = await this.gymsRepository.findbyId(gymId);
 
     if (!gym) {

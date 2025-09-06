@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { InMemoryGymsRepository } from "@/repositories/in-memory/in-memor-gyms-repository";
-import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory.checkins-repository";
+import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory.check-ins-repository";
 import { GetUserMetricsService } from "./get-user-metrics.service";
 
 let checkInsRepository: InMemoryCheckInsRepository;
