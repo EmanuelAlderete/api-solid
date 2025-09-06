@@ -1,4 +1,4 @@
-import { Decimal } from "generated/prisma/runtime/library";
+import { Decimal } from "@prisma/client/runtime/library";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { InMemoryGymsRepository } from "@/repositories/in-memory/in-memor-gyms-repository";
 import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory.checkins-repository";

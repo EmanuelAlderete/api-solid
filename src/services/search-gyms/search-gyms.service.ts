@@ -1,4 +1,4 @@
-import type { Gym } from "generated/prisma";
+import type { Gym } from "@prisma/client";
 import type { GymsRepository } from "@/repositories/gyms-repository";
 
 interface SearchGymServiceRequest {

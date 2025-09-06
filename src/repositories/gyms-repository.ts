@@ -1,4 +1,4 @@
-import type { Gym, Prisma } from "generated/prisma";
+import type { Gym, Prisma } from "@prisma/client";
 
 export interface FindManyNearbyParams {
   latitude: number;

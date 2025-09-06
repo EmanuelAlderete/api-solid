@@ -1,4 +1,4 @@
-import type { User } from 'generated/prisma'
+import type { User } from '@prisma/client'
 import type { UsersRepository } from '@/repositories/users-repository'
 import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 
