@@ -1,4 +1,4 @@
-import type { CheckInsRepository } from "@/repositories/checkins.repository";
+import type { CheckInsRepository } from "@/repositories/check-ins.repository";
 
 type GetUserMetricsServiceRequest = {
   userId: string;

@@ -1,6 +1,6 @@
 import { update } from "./../../../node_modules/effect/src/Differ";
 import type { CheckIn } from "@prisma/client";
-import type { CheckInsRepository } from "@/repositories/checkins.repository";
+import type { CheckInsRepository } from "@/repositories/check-ins.repository";
 import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coordinates";
 import { ResourceNotFoundError } from "../errors/resource-not-found-error";
 import { MaxDistanceError } from "../errors/max-distance-error";
